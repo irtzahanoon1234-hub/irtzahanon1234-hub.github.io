@@ -13,6 +13,7 @@
       --surface: #13131a;
       --accent: #6ee7b7;
       --accent2: #818cf8;
+      --award: #f59e0b;
       --text: #e2e8f0;
       --muted: #64748b;
       --border: rgba(255,255,255,0.07);
@@ -122,7 +123,7 @@
     .hero-desc {
       font-size: 1.1rem;
       color: var(--muted);
-      max-width: 500px;
+      max-width: 550px;
       line-height: 1.7;
       opacity: 0;
       animation: fadeUp 0.6s 0.6s forwards;
@@ -186,6 +187,22 @@
     }
     .about-text { color: var(--muted); line-height: 1.8; font-size: 1rem; }
     .about-text p + p { margin-top: 1rem; }
+    
+    /* BIO SPECIFICATIONS LIST */
+    .bio-specs {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+    }
+    .spec-label { color: var(--muted); }
+    .spec-value { color: var(--text); font-weight: 400; }
+
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -224,6 +241,15 @@
       transition: border-color 0.3s, transform 0.3s;
     }
     .exp-card:hover { border-color: var(--accent); transform: translateX(8px); }
+    
+    /* SPECIAL HIGHLIGHT FOR AWARD */
+    .exp-card.award-highlight {
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+    .exp-card.award-highlight:hover {
+      border-color: var(--award);
+    }
+
     .exp-icon {
       width: 52px; height: 52px;
       border-radius: 14px;
@@ -234,7 +260,11 @@
       font-size: 1.5rem;
       flex-shrink: 0;
     }
-    .exp-info {}
+    .exp-card.award-highlight .exp-icon {
+      background: linear-gradient(135deg, #fbbf24, var(--award));
+    }
+
+    .exp-info { flex-grow: 1; }
     .exp-title {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -242,6 +272,7 @@
       margin-bottom: 0.3rem;
     }
     .exp-org { color: var(--accent); font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .exp-card.award-highlight .exp-org { color: var(--award); }
     .exp-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
     .exp-period {
       margin-left: auto;
@@ -320,8 +351,9 @@
       .nav-links { display: none; }
       .hero { padding: 7rem 1.5rem 3rem; }
       .about, .experience, .skills, .contact { padding: 4rem 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .exp-period { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .exp-card { flex-direction: column; gap: 1rem; }
+      .exp-period { margin-left: 0; padding-top: 0; }
       footer { padding: 1.5rem; }
     }
   </style>
@@ -345,7 +377,7 @@
   <section class="hero">
     <div class="hero-tag">👋 Halo, saya</div>
     <h1>Irtiza Hanoon<br/><span>Kautsar</span></h1>
-    <p class="hero-desc">Seorang pelajar dengan semangat tinggi dalam teknologi dan kepemimpinan. Siap belajar, berkembang, dan berkontribusi.</p>
+    <p class="hero-desc">Pelajar SMA Prestasi Prima asal Bekasi dengan gairah tinggi di bidang teknologi, pemrograman Python, dan rekayasa sistem robotika.</p>
     <div class="hero-cta">
       <a href="#experience" class="btn btn-primary">Lihat Pengalaman</a>
       <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
@@ -360,26 +392,42 @@
     <h2 class="section-title">Siapa Irtiza?</h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>Saya adalah seorang pelajar SMA Prestasi Prima yang memiliki ketertarikan besar di bidang teknologi, khususnya robotika dan pemrograman.</p>
-        <p>Pengalaman sebagai Ketua Ekskul Robotik di MTs telah membentuk jiwa kepemimpinan dan kemampuan kerja tim yang kuat dalam diri saya.</p>
-        <p>Saya percaya bahwa teknologi adalah kunci masa depan, dan saya terus belajar untuk menjadi bagian dari perubahan itu.</p>
+        <p>Saya adalah seorang pelajar di <strong>SMA Prestasi Prima</strong> yang berdomisili di Bekasi. Memiliki ketertarikan mendalam sejak dini pada logika pemrograman, otomasi, dan perangkat pintar.</p>
+        <p>Hingga saat ini, saya secara konsisten aktif mengasah keahlian di bidang teknologi lewat kegiatan <strong>Ekskul Robotik</strong> sekolah, melanjutkan peran kepemimpinan dan teknis yang telah saya bangun sejak masa sekolah menengah.</p>
+        
+        <!-- BIODATA SPECIFICATIONS -->
+        <div class="bio-specs">
+          <div class="spec-item">
+            <span class="spec-label">Tanggal Lahir</span>
+            <span class="spec-value">23 Juli 2009</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Domisili</span>
+            <span class="spec-value">Bekasi, Jawa Barat</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Alamat</span>
+            <span class="spec-value">Kranggan Permai</span>
+          </div>
+        </div>
       </div>
+      
       <div class="stats">
         <div class="stat-card">
-          <div class="stat-num">1×</div>
-          <div class="stat-label">Ketua Ekskul Robotik</div>
+          <div class="stat-num">🏆</div>
+          <div class="stat-label">Juara Lomba Robotik</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">🤖</div>
-          <div class="stat-label">Bidang Robotika</div>
+          <div class="stat-label">Aktif Ekskul Robotik</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">💡</div>
           <div class="stat-label">Problem Solver</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">📚</div>
-          <div class="stat-label">Terus Belajar</div>
+          <div class="stat-num">🐍</div>
+          <div class="stat-label">Python Developer</div>
         </div>
       </div>
     </div>
@@ -387,29 +435,42 @@
 
   <div class="divider"></div>
 
-  <!-- EXPERIENCE -->
+  <!-- EXPERIENCE & AWARDS -->
   <section class="experience" id="experience">
-    <div class="section-label">Pengalaman</div>
+    <div class="section-label">Pencapaian & Pengalaman</div>
     <h2 class="section-title">Perjalanan Saya</h2>
 
+    <!-- PRESTASI ROBOTIK 2024 -->
+    <div class="exp-card award-highlight">
+      <div class="exp-icon">🏆</div>
+      <div class="exp-info">
+        <div class="exp-title">Juara 2 — Cirebon Robotic Competition 2024</div>
+        <div class="exp-org">Universitas Muhammadiyah Cirebon & Kemenag Kab. Cirebon</div>
+        <div class="exp-desc">Meraih penghargaan Juara 2 dalam kategori <strong>Innovation Project</strong> tingkat MTs/SMP Sederajat melalui pengembangan proyek inovasi teknologi robotika yang kompetitif.</div>
+      </div>
+      <div class="exp-period">26 Oktober 2024</div>
+    </div>
+
+    <!-- SMA PRESTASI PRIMA -->
     <div class="exp-card">
-      <div class="exp-icon">🤖</div>
+      <div class="exp-icon">🏫</div>
+      <div class="exp-info">
+        <div class="exp-title">Pelajar & Anggota Ekskul Robotik</div>
+        <div class="exp-org">SMA Prestasi Prima</div>
+        <div class="exp-desc">Menempuh pendidikan tingkat SMA dengan fokus pada pengembangan hard skills IT. Aktif berkontribusi dan mengeksplorasi modul robotika tingkat lanjut di lingkungan ekstrakurikuler sekolah.</div>
+      </div>
+      <div class="exp-period">Sekarang</div>
+    </div>
+
+    <!-- KETUA EKSKUL MTS -->
+    <div class="exp-card">
+      <div class="exp-icon">👥</div>
       <div class="exp-info">
         <div class="exp-title">Ketua Ekskul Robotik</div>
         <div class="exp-org">MTs — Ekstrakurikuler Robotika</div>
-        <div class="exp-desc">Memimpin tim ekskul robotik, mengkoordinasikan anggota, dan membimbing proses belajar robotika bersama. Bertanggung jawab atas program latihan dan kegiatan kompetisi.</div>
+        <div class="exp-desc">Memimpin organisasi, mengkoordinasikan program latihan mingguan, serta membimbing rekan tim dalam memahami komponen elektronik dasar dan logika pemrograman mekanik.</div>
       </div>
       <div class="exp-period">Masa MTs</div>
-    </div>
-
-    <div class="exp-card">
-      <div class="exp-icon">📖</div>
-      <div class="exp-info">
-        <div class="exp-title">Pelajar Aktif</div>
-        <div class="exp-org">Pendidikan Formal</div>
-        <div class="exp-desc">Menjalani pendidikan dengan fokus pada pengembangan diri di bidang teknologi, pemrograman, dan keterampilan abad 21.</div>
-      </div>
-      <div class="exp-period">Sekarang</div>
     </div>
   </section>
 
@@ -418,16 +479,15 @@
   <!-- SKILLS -->
   <section class="skills" id="skills">
     <div class="section-label">Keahlian</div>
-    <h2 class="section-title">Yang Saya Kuasai</h2>
+    <h2 class="section-title">Spesifikasi Teknis</h2>
     <div class="skills-grid">
-      <span class="skill-pill">🤖 Robotika</span>
-      <span class="skill-pill">🐍 Python</span>
+      <span class="skill-pill">🤖 Robotika & Otomasi</span>
+      <span class="skill-pill">🐍 Python (Tkinter & PySimpleGUI)</span>
+      <span class="skill-pill">⚙️ C++ (Arduino Development)</span>
       <span class="skill-pill">🌐 HTML & CSS</span>
-      <span class="skill-pill">💻 GitHub</span>
-      <span class="skill-pill">👥 Kepemimpinan</span>
-      <span class="skill-pill">🗣️ Komunikasi</span>
+      <span class="skill-pill">💻 Git & GitHub Control</span>
+      <span class="skill-pill">👥 Kepemimpinan Tim</span>
       <span class="skill-pill">🧩 Problem Solving</span>
-      <span class="skill-pill">🔧 Kerja Tim</span>
     </div>
   </section>
 
@@ -436,7 +496,7 @@
   <!-- PROJECTS -->
   <section class="experience" id="projects">
     <div class="section-label">Project</div>
-    <h2 class="section-title">Yang Pernah saya Buat</h2>
+    <h2 class="section-title">Repositori Pilihan</h2>
 
     <div class="exp-card">
       <div class="exp-icon">🧮</div>
@@ -466,13 +526,13 @@
     <div class="section-label">Kontak</div>
     <h2 class="section-title">Mari Terhubung</h2>
     <div class="contact-box">
-      <p>Tertarik untuk berkolaborasi atau sekadar menyapa? Jangan ragu untuk menghubungi saya!</p>
+      <p>Tertarik untuk berkolaborasi dalam proyek robotika, pengembangan aplikasi, atau sekadar bertukar ide? Silakan hubungi saya!</p>
       <a href="https://github.com/irtzahanoon1234-hub" target="_blank" class="btn btn-primary">🐙 GitHub Saya</a>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Irtiza Hanoon Kautsar — Dibuat dengan ❤️</p>
+    <p>© 2026 Irtiza Hanoon Kautsar — Dibuat dengan ❤️</p>
   </footer>
 
 </body>
